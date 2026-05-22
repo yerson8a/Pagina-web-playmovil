@@ -56,11 +56,11 @@ export function Footer() {
           {/* Marca */}
           <div>
             <Image
-              src="/images/logo.jpeg"
+              src="/images/logo.png"
               alt="Play Móvil"
-              width={196}
-              height={60}
-              className="h-12 w-auto mix-blend-screen"
+              width={368}
+              height={112}
+              className="h-14 w-auto"
             />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
               Estrena tu iPhone a crédito en Colombia. Financiación para

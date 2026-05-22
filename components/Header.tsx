@@ -20,12 +20,12 @@ function Logo() {
       className="group inline-flex items-center"
     >
       <Image
-        src="/images/logo.jpeg"
+        src="/images/logo.png"
         alt="Play Móvil"
-        width={172}
-        height={52}
+        width={368}
+        height={112}
         priority
-        className="h-9 w-auto mix-blend-screen transition-transform duration-300 group-hover:scale-[1.03] sm:h-10"
+        className="h-10 w-auto transition-transform duration-300 group-hover:scale-[1.03] sm:h-11"
       />
     </a>
   );
