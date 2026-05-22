@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Play Móvil — estilos base
+   ============================================================ */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-ink text-white/90 antialiased;
+    font-feature-settings: "ss01", "cv01";
+    overflow-x: hidden;
+  }
+
+  /* Compensar el header sticky al navegar por anclas */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  ::selection {
+    @apply bg-brand-500/40 text-white;
+  }
+
+  /* Scrollbar premium */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #070510;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6d28d9, #2e1065);
+    border-radius: 999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #7c3aed, #5b21b6);
+  }
+}
+
+/* ============================================================
+   Componentes / utilidades de marca
+   ============================================================ */
+@layer components {
+  /* Glassmorphism sutil */
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/15 bg-white/[0.07] backdrop-blur-2xl;
+  }
+
+  /* Texto con degradado morado */
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-brand-100 to-brand-300 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-brand-300 via-brand-400 to-brand-200 bg-clip-text text-transparent;
+  }
+
+  /* Botón primario premium */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2.5 overflow-hidden rounded-full
+      bg-brand-gradient px-7 py-4 text-[0.95rem] font-semibold text-white
+      shadow-glow transition-all duration-300
+      hover:-translate-y-0.5 hover:shadow-glow-lg
+      active:translate-y-0 active:scale-[0.98];
+  }
+
+  /* Botón secundario glass */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full border border-white/15
+      bg-white/[0.04] px-7 py-4 text-[0.95rem] font-semibold text-white/90 backdrop-blur-xl
+      transition-all duration-300
+      hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/[0.09]
+      active:translate-y-0 active:scale-[0.98];
+  }
+
+  /* Etiqueta "eyebrow" sobre los títulos */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-500/30
+      bg-brand-500/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]
+      text-brand-200;
+  }
+
+  /* Contenedor estándar */
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+}
+
+@layer utilities {
+  /* Borde con degradado para tarjetas destacadas */
+  .border-glow {
+    border-image: linear-gradient(135deg, #7c3aed, transparent 60%) 1;
+  }
+
+  /* Grano sutil para profundidad cinematográfica */
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+    mask-image: linear-gradient(to bottom, black 70%, transparent);
+  }
+}
+
+/* Respeto a usuarios con movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
