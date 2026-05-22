@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { navLinks, site, waLink } from "@/lib/site";
 import { Reveal } from "@/components/ui/Reveal";
 import {
@@ -54,15 +55,14 @@ export function Footer() {
         <div className="grid gap-10 border-t border-white/10 py-14 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Marca */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gradient shadow-glow">
-                <SparkIcon className="h-4 w-4 text-white" />
-              </span>
-              <span className="font-display text-lg font-bold text-white">
-                Play<span className="text-gradient-brand"> Móvil</span>
-              </span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/50">
+            <Image
+              src="/images/logo.jpeg"
+              alt="Play Móvil"
+              width={196}
+              height={60}
+              className="h-12 w-auto mix-blend-screen"
+            />
+            <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/50">
               Estrena tu iPhone a crédito en Colombia. Financiación para
               reportados, poco historial o buen historial crediticio.
             </p>

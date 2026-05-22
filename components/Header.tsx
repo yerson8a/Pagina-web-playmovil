@@ -1,26 +1,32 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { navLinks, site, waLink } from "@/lib/site";
 import {
   ArrowRightIcon,
   CloseIcon,
   MenuIcon,
-  SparkIcon,
   WhatsAppIcon,
 } from "@/components/ui/Icons";
 
-/** Logotipo de Play Móvil (marca tipográfica + símbolo). */
+/** Logotipo de Play Móvil — usa el logo oficial en /public/images/logo.jpeg. */
 function Logo() {
   return (
-    <a href="#inicio" className="group flex items-center gap-2.5">
-      <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-brand-gradient shadow-glow">
-        <SparkIcon className="h-4 w-4 text-white" />
-      </span>
-      <span className="font-display text-lg font-bold tracking-tight text-white">
-        Play<span className="text-gradient-brand"> Móvil</span>
-      </span>
+    <a
+      href="#inicio"
+      aria-label="Play Móvil — inicio"
+      className="group inline-flex items-center"
+    >
+      <Image
+        src="/images/logo.jpeg"
+        alt="Play Móvil"
+        width={172}
+        height={52}
+        priority
+        className="h-9 w-auto mix-blend-screen transition-transform duration-300 group-hover:scale-[1.03] sm:h-10"
+      />
     </a>
   );
 }
